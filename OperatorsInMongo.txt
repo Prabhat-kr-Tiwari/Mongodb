@@ -1,0 +1,146 @@
+ecom> db.products.find({name:{ $eq:"keyboard" }})
+[
+  {
+    _id: ObjectId("652039b8dc1ba0769c2c56c5"),
+    name: 'keyboard',
+    category: 'computers '
+  },
+  { _id: ObjectId("65203bf1dc1ba0769c2c56c6"), name: 'keyboard' }
+]
+ecom> db.products.insertOne({name:" pen   ",price:5})
+{
+  acknowledged: true,
+  insertedId: ObjectId("65203fd0dc1ba0769c2c56c7")
+}
+
+ecom> db.products.find({name:{ $eq:"keyboard" }})
+[
+  {
+    _id: ObjectId("652039b8dc1ba0769c2c56c5"),
+    name: 'keyboard',
+    category: 'computers '
+  },
+  { _id: ObjectId("65203bf1dc1ba0769c2c56c6"), name: 'keyboard' }
+]
+ecom> db.products.insertOne({name:" pen   ",price:5})
+{
+  acknowledged: true,
+  insertedId: ObjectId("65203fd0dc1ba0769c2c56c7")
+}
+ecom> db.products.find({name:{ $eq:"pen" }})
+ReferenceError: dcds is not definedd
+ecom> db.products.find({name:{ $eq:"pen" }})
+
+ecom> db.products.find({name:{ $eq:"pen" }})
+
+ecom> db.products.find()
+[
+  {
+    _id: ObjectId("652039b8dc1ba0769c2c56c5"),
+    name: 'keyboard',
+    category: 'computers '
+  },
+  { _id: ObjectId("65203bf1dc1ba0769c2c56c6"), name: 'keyboard' },
+  {
+    _id: ObjectId("65203fd0dc1ba0769c2c56c7"),
+    name: ' pen   ',
+    price: 5
+  }
+]
+ecom> db.products.find({name:{ $eq:"pen  " }})
+
+ecom> db.products.find({name:{ $eq:"pen   " }})
+
+ecom> db.products.deleteOne({ _id: ObjectId("65203fd0dc1ba0769c2c56c7") })
+{ acknowledged: true, deletedCount: 1 }
+ecom> db.products.find()
+[
+  {
+    _id: ObjectId("652039b8dc1ba0769c2c56c5"),
+    name: 'keyboard',
+    category: 'computers '
+  },
+  { _id: ObjectId("65203bf1dc1ba0769c2c56c6"), name: 'keyboard' }
+]
+ecom> db.products.insertOne({name:"pen",price:5})
+{
+  acknowledged: true,
+  insertedId: ObjectId("65204170dc1ba0769c2c56c8")
+}
+ecom> db.products.find({name:{$eq:"pen"}})
+[
+  { _id: ObjectId("65204170dc1ba0769c2c56c8"), name: 'pen', price: 5 }
+]
+ecom> db.products.find({price:{ $eq:5}})
+[
+  { _id: ObjectId("65204170dc1ba0769c2c56c8"), name: 'pen', price: 5 }
+]
+ecom> db.products.insertOne({name:"usb",price:10})
+{
+  acknowledged: true,
+  insertedId: ObjectId("6520465ddc1ba0769c2c56c9")
+}
+ecom> db.products.find()
+[
+  {
+    _id: ObjectId("652039b8dc1ba0769c2c56c5"),
+    name: 'keyboard',
+    category: 'computers '
+  },
+  { _id: ObjectId("65203bf1dc1ba0769c2c56c6"), name: 'keyboard' },
+  { _id: ObjectId("65204170dc1ba0769c2c56c8"), name: 'pen', price: 5 },
+  { _id: ObjectId("6520465ddc1ba0769c2c56c9"), name: 'usb', price: 10 }
+]
+ecom> db.products.find({price:{ $gt:6 }})
+[
+  { _id: ObjectId("6520465ddc1ba0769c2c56c9"), name: 'usb', price: 10 }
+]
+ecom> db.products.find({price:{ $gt:1}})
+[
+  { _id: ObjectId("65204170dc1ba0769c2c56c8"), name: 'pen', price: 5 },
+  { _id: ObjectId("6520465ddc1ba0769c2c56c9"), name: 'usb', price: 10 }
+]
+ecom> db.products.find({price:{ $gte:5}})
+[
+  { _id: ObjectId("65204170dc1ba0769c2c56c8"), name: 'pen', price: 5 },
+  { _id: ObjectId("6520465ddc1ba0769c2c56c9"), name: 'usb', price: 10 }
+]
+ecom> db.products.find({price:{ $lt:6}})
+[
+  { _id: ObjectId("65204170dc1ba0769c2c56c8"), name: 'pen', price: 5 }
+]
+ecom> db.products.find({price:{ $ne:11}})
+[
+  {
+    _id: ObjectId("652039b8dc1ba0769c2c56c5"),
+    name: 'keyboard',
+    category: 'computers '
+  },
+  { _id: ObjectId("65203bf1dc1ba0769c2c56c6"), name: 'keyboard' },
+  { _id: ObjectId("65204170dc1ba0769c2c56c8"), name: 'pen', price: 5 },
+  { _id: ObjectId("6520465ddc1ba0769c2c56c9"), name: 'usb', price: 10 }
+]
+ecom> db.products.find({$ and:[{ price:{ $eq:10} },{name:{$eq:'pen'}}]})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:20)
+ecom>
+> 1 | db.products.find({$ and:[{ price:{ $eq:10} },{name:{$eq:'pen'}}]})
+    |                     ^
+  2 |
+
+ecom> db.products.find({$and:[{ price:{ $eq:10} },{name:{$eq:'pen'}}]})
+
+ecom> db.products.find({$and:[{ price:{ $eq:10} },{name:{$eq:'usb'}}]})
+[
+  { _id: ObjectId("6520465ddc1ba0769c2c56c9"), name: 'usb', price: 10 }
+]
+ecom> db.products.find({$or:[{ price:{ $eq:10} },{name:{$eq:'usb'}}]})
+[
+  { _id: ObjectId("6520465ddc1ba0769c2c56c9"), name: 'usb', price: 10 }
+]
+ecom> db.products.find({$or:[{ price:{ $eq:10} },{name:{$eq:'pen'}}]})
+[
+  { _id: ObjectId("65204170dc1ba0769c2c56c8"), name: 'pen', price: 5 },
+  { _id: ObjectId("6520465ddc1ba0769c2c56c9"), name: 'usb', price: 10 }
+]
+ecom>
