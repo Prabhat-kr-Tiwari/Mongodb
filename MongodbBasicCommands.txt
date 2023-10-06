@@ -1,0 +1,406 @@
+Microsoft Windows [Version 10.0.19045.3448]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\prabhat>mongosh
+Current Mongosh Log ID: 651ffc17aaed8a879ea021c2
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.1
+Using MongoDB:          7.0.2
+Using Mongosh:          2.0.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2023-10-06T17:25:12.175+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+test>
+
+C:\Users\prabhat>
+
+C:\Users\prabhat>mongo
+'mongo' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\prabhat>mongosh
+Current Mongosh Log ID: 651ffc75785eac8a04df08fc
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.1
+Using MongoDB:          7.0.2
+Using Mongosh:          2.0.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2023-10-06T17:25:12.175+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> exit
+
+C:\Users\prabhat>monosh
+'monosh' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\prabhat>mongosh
+Current Mongosh Log ID: 65200b21328583568fa64ee1
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.1
+Using MongoDB:          7.0.2
+Using Mongosh:          2.0.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2023-10-06T17:25:12.175+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+ecom> db.createCollection('products')
+{ ok: 1 }: db.createcollection is not a function
+ecom> show collections
+products40.00 KiB
+ecom> show dbs
+admin   40.00 KiB
+config  72.00 KiB
+ecom     8.00 KiB
+local   40.00 KiB
+mydb     8.00 KiB
+ecom> show collections
+products}to db ecom
+users
+ecom> show collections
+users
+ecom> use ecom
+already on db ecom
+ecom> db.dropDatabase()
+{ ok: 1, dropped: 'ecom' }
+------
+   The server generated these startup warnings when booting
+   2023-10-06T17:25:12.175+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------ting to: KiB      mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.1
+test> show collections
+Using Mongosh:          2.0.1
+ecom> db.createCollection('products')
+{ ok: 1 }: db.createCollections is not a functionngodb-shell/
+ecom> db.products.find()
+Uncaught:40.00 KiB
+ecom>
+{
+  acknowledged: true,nd()
+  insertedId: ObjectId("6520116edc1ba0769c2c56bf")
+ecom> db.products.find()
+[
+  {
+    _id: ObjectId("6520116edc1ba0769c2c56bf"),
+    name: 'Keyboard',
+    price: 250
+  }
+]
+ecom> db.products.insertOne({name:'Monitor' ,price:350})
+{
+  acknowledged: true,
+  insertedId: ObjectId("652011c0dc1ba0769c2c56c0")
+}
+ecom> db.products.find()
+[
+  {
+    _id: ObjectId("6520116edc1ba0769c2c56bf"),
+    name: 'Keyboard',
+    price: 250
+  },
+  {
+    _id: ObjectId("652011c0dc1ba0769c2c56c0"),
+    name: 'Monitor',
+    price: 350
+  }
+]
+ecom> db.products.find({price:250})
+[
+  {
+    _id: ObjectId("6520116edc1ba0769c2c56bf"),
+    name: 'Keyboard',
+    price: 250
+  }
+]
+ecom> db.products.insertMany([ {name:"mouse",price:100},{name:"table",price:100} ])
+{ull
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("652030fadc1ba0769c2c56c1"),
+    '1': ObjectId("652030fadc1ba0769c2c56c2")
+  }
+}
+ecom> db.products.find()
+[
+  {
+    _id: ObjectId("6520116edc1ba0769c2c56bf"),
+    name: 'Keyboard',
+    price: 250
+  },
+  {
+    _id: ObjectId("652011c0dc1ba0769c2c56c0"),
+    name: 'Monitor',
+    price: 350
+  },
+  {
+    _id: ObjectId("652030fadc1ba0769c2c56c1"),
+    name: 'mouse',
+    price: 100
+  },
+  {
+    _id: ObjectId("652030fadc1ba0769c2c56c2"),
+    name: 'table',
+    price: 100
+  }
+]
+ecom> db.products.find().pretty()
+[
+  {
+    _id: ObjectId("6520116edc1ba0769c2c56bf"),
+    name: 'Keyboard',
+    price: 250
+  },
+  {
+    _id: ObjectId("652011c0dc1ba0769c2c56c0"),
+    name: 'Monitor',
+    price: 350
+  },
+  {
+    _id: ObjectId("652030fadc1ba0769c2c56c1"),
+    name: 'mouse',
+    price: 100
+  },
+  {
+    _id: ObjectId("652030fadc1ba0769c2c56c2"),
+    name: 'table',
+    price: 100
+  }
+]
+ecom> db.products.update({ _id  ObjectId("652011c0dc1ba0769c2c56c0") },{$set{name:"Tecom> db.products.update({ _id,  ObjectId("652011c0dc1ba0769c2c56c0") },{$set{name:"TV"  }  )
+Uncaught:or: Unexpected token, expected "," (1:26)
+SyntaxError: Unexpected token (1:36)
+> 1 | db.products.update({ _id  ObjectId("652011c0dc1ba0769c2c56c0") },{$set{name:"T> 1 | db.products.update({ _id,  ObjectId("652011c0dc1ba0769c2c56c0") },{$set{name:"TV"  }  )                       ^
+    |                                     ^
+  2 |
+
+ecom> db.products.update({ _id:  ObjectId("652011c0dc1ba0769c2c56c0") },{$set{name:"TV"  }  )
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:71)
+
+> 1 | db.products.update({ _id:  ObjectId("652011c0dc1ba0769c2c56c0") },{$set{name:"TV"  }  )
+    |                                                                        ^
+  2 |
+
+ecom> db.products.update({ _id:  ObjectId("652011c0dc1ba0769c2c56c0") },{$set: {name:"TV"  }  )
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:88)
+
+> 1 | db.products.update({ _id:  ObjectId("652011c0dc1ba0769c2c56c0") },{$set: {name:"TV"  }  )
+    |                                                                                         ^
+  2 |
+
+ecom> db.products.update({ _id:  ObjectId("652011c0dc1ba0769c2c56c0") },{$set: {name:"TV"  } } )
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+ecom> db.products.find().pretty()
+[
+  {
+    _id: ObjectId("6520116edc1ba0769c2c56bf"),
+    name: 'Keyboard',
+    price: 250
+  },
+  { _id: ObjectId("652011c0dc1ba0769c2c56c0"), name: 'TV', price: 350 },
+  {
+    _id: ObjectId("652030fadc1ba0769c2c56c1"),
+    name: 'mouse',
+    price: 100
+  },
+  {
+    _id: ObjectId("652030fadc1ba0769c2c56c2"),
+    name: 'table',
+    price: 100
+  }
+]
+ecom> db.products.deleteOne({ _id: ObjectId("652030fadc1ba0769c2c56c2") })
+{ acknowledged: true, deletedCount: 1 }
+ecom> db.products.find().pretty()
+[
+  {
+    _id: ObjectId("6520116edc1ba0769c2c56bf"),
+    name: 'Keyboard',
+    price: 250
+  },
+  { _id: ObjectId("652011c0dc1ba0769c2c56c0"), name: 'TV', price: 350 },
+  {
+    _id: ObjectId("652030fadc1ba0769c2c56c1"),
+    name: 'mouse',
+    price: 100
+  }
+]
+ecom> db.products.deleteMany({ _id: {  $in:[ ObjectId("652030fadc1ba0769c2c56c1"), ObjectId("652011c0dc1ba0769c2c56c0") ] } })
+{ acknowledged: true, deletedCount: 2 }
+ecom> db.products.find().pretty()
+[
+  {
+    _id: ObjectId("6520116edc1ba0769c2c56bf"),
+    name: 'Keyboard',
+    price: 250
+  }
+]
+ecom> show dbs
+admin   40.00 KiB
+config  96.00 KiB
+ecom    72.00 KiB
+local   40.00 KiB
+mydb     8.00 KiB
+ecom> db.createCollections('reviews')
+TypeError: db.createCollections is not a function
+ecom> db.createCollection('reviews')
+{ ok: 1 }
+ecom> show collections
+products
+reviews
+ecom> db.reviews.insertMany([{ text:" This is very good products ",stars:4,productId:ObjectId("6520116edc1ba0769c2c56bf")  }, { text:" This is not good products ",stars:2 ,productId:ObjectId("6520116edc1ba0769c2c56bf") } ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("65203671dc1ba0769c2c56c3"),
+    '1': ObjectId("65203671dc1ba0769c2c56c4")
+  }
+}
+ecom> db.reviews.find()
+[
+  {
+    _id: ObjectId("65203671dc1ba0769c2c56c3"),
+    text: ' This is very good products ',
+    stars: 4,
+    productId: ObjectId("6520116edc1ba0769c2c56bf")
+  },
+  {
+    _id: ObjectId("65203671dc1ba0769c2c56c4"),
+    text: ' This is not good products ',
+    stars: 2,
+    productId: ObjectId("6520116edc1ba0769c2c56bf")
+  }
+]
+ecom> d.products.update({ _id: ObjectId("6520116edc1ba0769c2c56bf")  },{ $set:{ reviews:[{ text:" This is very good products ",stars:4,productId:ObjectId("6520116edc1ba0769c2c56bf")  }, { text:" This is not good products ",stars:2 ,productId:ObjectId("6520116edc1ba0769c2c56bf") }  ] }  })
+ReferenceError: d is not defined
+ecom> db.products.update({ _id: ObjectId("6520116edc1ba0769c2c56bf")  },{ $set:{ reviews:[{ text:" This is very good products ",stars:4,productId:ObjectId("6520116edc1ba0769c2c56bf")  }, { text:" This is not good products ",stars:2 ,productId:ObjectId("6520116edc1ba0769c2c56bf") }  ] }  })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+ecom> db.products.find().pretty()
+[
+  {
+    _id: ObjectId("6520116edc1ba0769c2c56bf"),
+    name: 'Keyboard',
+    price: 250,
+    reviews: [
+      {
+        text: ' This is very good products ',
+        stars: 4,
+        productId: ObjectId("6520116edc1ba0769c2c56bf")
+      },
+      {
+        text: ' This is not good products ',
+        stars: 2,
+        productId: ObjectId("6520116edc1ba0769c2c56bf")
+      }
+    ]
+  }
+]
+ecom> db.products.insertOne({ name:"keyboard",category:'computers '  })
+{
+  acknowledged: true,
+  insertedId: ObjectId("652039b8dc1ba0769c2c56c5")
+}
+ecom> db.products.find().pretty()
+[
+  {
+    _id: ObjectId("6520116edc1ba0769c2c56bf"),
+    name: 'Keyboard',
+    price: 250,
+    reviews: [
+      {
+        text: ' This is very good products ',
+        stars: 4,
+        productId: ObjectId("6520116edc1ba0769c2c56bf")
+      },
+      {
+        text: ' This is not good products ',
+        stars: 2,
+        productId: ObjectId("6520116edc1ba0769c2c56bf")
+      }
+    ]
+  },
+  {
+    _id: ObjectId("652039b8dc1ba0769c2c56c5"),
+    name: 'keyboard',
+    category: 'computers '
+  }
+]
+ecom> db.products.find()
+[
+  {
+    _id: ObjectId("6520116edc1ba0769c2c56bf"),
+    name: 'Keyboard',
+    price: 250,
+    reviews: [
+      {
+        text: ' This is very good products ',
+        stars: 4,
+        productId: ObjectId("6520116edc1ba0769c2c56bf")
+      },
+      {
+        text: ' This is not good products ',
+        stars: 2,
+        productId: ObjectId("6520116edc1ba0769c2c56bf")
+      }
+    ]
+  },
+  {
+    _id: ObjectId("652039b8dc1ba0769c2c56c5"),
+    name: 'keyboard',
+    category: 'computers '
+  }
+]
+ecom> db.products.deleteOne({ _id: ObjectId("6520116edc1ba0769c2c56bf") })
+{ acknowledged: true, deletedCount: 1 }
+ecom> db.products.find()
+[
+  {
+    _id: ObjectId("652039b8dc1ba0769c2c56c5"),
+    name: 'keyboard',
+    category: 'computers '
+  }
+]
+ecom> db.products.insertOne({name:"keyboard"})
+{
+  acknowledged: true,
+  insertedId: ObjectId("65203bf1dc1ba0769c2c56c6")
+}
+ecom> db.products.find()
+[
+  {
+    _id: ObjectId("652039b8dc1ba0769c2c56c5"),
+    name: 'keyboard',
+    category: 'computers '
+  },
+  { _id: ObjectId("65203bf1dc1ba0769c2c56c6"), name: 'keyboard' }
+]
+ecom>
