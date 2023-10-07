@@ -1,0 +1,124 @@
+Microsoft Windows [Version 10.0.19045.3448]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\prabhat>mongosh
+Current Mongosh Log ID: 65215c6f0090611c7bf86d37
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.1
+Using MongoDB:          7.0.2
+Using Mongosh:          2.0.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2023-10-07T18:55:55.314+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2023-10-07T18:55:55.315+05:30: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+------
+
+test> mongo --port 27017  --authenticationDatabase  'ecom' -u 'ecomUser' -p
+Uncaught:
+SyntaxError: Missing semicolon. (1:8)
+
+> 1 | mongo --port 27017  --authenticationDatabase  'ecom' -u 'ecomUser' -p
+    |         ^
+  2 |
+
+test> db.auth('ecomUser',passwordPrompt())
+Enter password
+Sonu123@
+MongoServerError: Authentication failed.
+test>
+
+test> use ecom
+switched to db ecom
+ecom> db.auth('ecomUser',passwordPrompt())
+Enter password
+Sonu123@
+********{ ok: 1 }
+ecom>
+
+ecom> use ecom
+already on db ecom
+ecom> show users
+[dmin   180.00 KiB
+  {fig  108.00 KiB
+    _id: 'ecom.ecomUser',
+    userId: new UUID("45c169a4-a838-4098-a99e-c435b0a0f3cb"),
+    user: 'ecomUser',
+    db: 'ecom',
+    roles: [
+      { role: 'readWrite', db: 'ecom' },
+      { role: 'read', db: 'pizza' }
+    ],
+    mechanisms: [ 'SCRAM-SHA-1', 'SCRAM-SHA-256' ]
+  }
+]
+ecom> show dbs
+admin   180.00 KiB
+config  108.00 KiB
+ecom     40.00 KiB
+local    72.00 KiB
+pizza     8.00 KiB
+...   role: 'listDatabasesRole',
+...   privileges: [
+...     {
+...       resource: { db: '', cluster: true },
+...       actions: ['listDatabases']
+...     }
+...   ],
+...   roles: []
+... })
+MongoServerError: resource must set both db and collection or neither, but not exactly one.
+ecom> db.createRole({
+...    role: 'customRole',
+...    privileges: [
+...      {
+...        resource: { db: 'mydb', collection: 'mycollection' },
+...        actions: ['find', 'insert']
+...      }
+...    ],
+...    roles: []
+... })
+MongoServerError: Roles on the 'ecom' database cannot be granted privileges that target other databases or the cluster
+...    role: 'customRole',
+...    privileges: [
+...      {
+...        resource: { db: 'mydb', collection: 'mycollection' },
+...        actions: ['find', 'insert']
+...      }
+...    ],
+...    roles: []
+... })
+MongoServerError: Roles on the 'ecom' database cannot be granted privileges that target other databases or the cluster
+...   role: 'customListDatabasesRole',
+...   privileges: [
+...     {
+...       resource: { db: 'ecom', collection: '' },
+...       actions: ['listDatabases']
+...     }
+...   ],
+...   roles: []
+...   role: 'customListDatabasesRole',
+...   privileges: [
+...     {
+...       resource: { db: 'ecom', collection: '' },
+...       actions: ['listDatabases']
+...     }
+...   ],
+...   roles: []
+... })
+{ ok: 1 }
+pizza> db.orderdetails.insertOne({name:'large',price:100})
+{ncaught:ilsdb pizza
+  acknowledged: true,ed token, expected "," (1:30)
+  insertedId: ObjectId("6521628c0090611c7bf86d38")
+} 1 | db.orderdetails.insertOne(name:'large',price:100)
+pizza> db.orderdetails.find()
+[ 2 |
+  {
+    _id: ObjectId("6521628c0090611c7bf86d38"),
+    name: 'large',
+    price: 100
+  }
+]
+pizza>
